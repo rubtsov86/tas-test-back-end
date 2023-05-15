@@ -3,6 +3,7 @@ import logger from "morgan";
 import cors from "cors";
 
 import tasksRoutes from "./routes/tasks";
+import resultsRoutes from "./routes/results";
 import authRoutes from "./routes/auth";
 
 import dotenv from "dotenv";
@@ -16,6 +17,7 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/results", resultsRoutes);
 app.use("/api/tasks", tasksRoutes);
 app.use("/api/users", authRoutes);
 
